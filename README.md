@@ -9,7 +9,7 @@ This dashboard was designed to move beyond basic portfolio reporting and answer 
 ## Dashboard Pages
 
 ### Page 1 — Portfolio Overview
-![Portfolio Overview](screenshots/page1-portfolio-overview.png)
+![Portfolio Overview](Banking Risk Analytics Dashoboard Pg1.png)
 
 Tracks the overall loan book: total loan amount, outstanding balance, default rate, active loans, and customer count, broken down by occupation, age bracket, gender, customer segment, loan status, and loan type.
 
