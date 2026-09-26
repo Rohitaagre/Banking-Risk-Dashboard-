@@ -40,6 +40,3 @@ Focused entirely on risk: amount at risk by branch, default rate by credit-score
 - **DAX** — custom measures for risk and default metrics
 - **Excel** — source data (loan facts, product/loan-type reference, customer demographics)
 
-## Data Note
-
-This project uses a synthetic/sample banking dataset created for portfolio and learning purposes — it does not represent real customer or loan data.
