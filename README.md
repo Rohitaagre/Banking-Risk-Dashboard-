@@ -1,30 +1,45 @@
-# Banking Risk Dashboard – Power BI
+# Banking Risk Analytics Dashboard (Power BI)
 
-An interactive Power BI dashboard analyzing a bank's loan portfolio 
-across 102 loans and 30 customers, tracking key risk metrics such as 
-default rate, outstanding balance, and portfolio distribution by risk 
-category, geography, and customer demographics.
+An interactive two-page Power BI dashboard built to monitor loan portfolio health and quantify credit risk exposure across branches, credit-score segments, and loan types — using a synthetic banking dataset of 150 loan applications across 30 customers and 8 branches.
 
-## Dataset
-Relational dataset with three tables:
-- **Loan_Fact** – loan-level transactional data (amount, EMI, status, default flag)
-- **PROD** – loan product details (type, interest rate, risk category, tenure)
-- **CUST** – customer demographics (age, gender, occupation, income band, credit score)
+## Overview
 
-## Key KPIs Tracked
-- Total Loan Portfolio: ₹270M
-- Outstanding Balance: ₹89.2M
-- Default Rate: 13%
-- Active Loans: 102 | Customers: 30
+This dashboard was designed to move beyond basic portfolio reporting and answer real risk-management questions: which branches carry the most exposure, which credit-score segments default most often, and how default rates trend over time. It combines KPI cards, trend analysis, and risk-segmented breakdowns into a single, filterable view.
 
-## Key Insight
-"High-risk category loans showed a default rate of X% roughly 
-Nx higher than low-risk loans, Unsecured loans (Personal, Gold) showed higher default rates than secured loans (Home, LAP) — consistent with collateral reducing default risk. "]
+## Dashboard Pages
+
+### Page 1 — Portfolio Overview
+![Portfolio Overview](screenshots/page1-portfolio-overview.png)
+
+Tracks the overall loan book: total loan amount, outstanding balance, default rate, active loans, and customer count, broken down by occupation, age bracket, gender, customer segment, loan status, and loan type.
+
+### Page 2 — Risk Analytics
+![Risk Analytics](screenshots/page2-risk-analytics.png)
+
+Focused entirely on risk: amount at risk by branch, default rate by credit-score band, default rate by loan type, default rate trend over time, and portfolio distribution by risk category.
+
+## Key Insights
+
+- Tracked a **$270M+ loan portfolio** across 102 active loans, using custom DAX measures to quantify default rate, exposure, and risk across branches, credit scores, and loan types.
+- Uncovered a **16.7% peak default rate** within the "Fair" credit-score segment and **$3.6M+ exposure** concentrated in a single branch, enabling targeted, data-driven risk mitigation decisions.
+- Identified default rate spikes exceeding **20%** in specific months (May, September) and seasonal risk patterns across the loan portfolio, enabling proactive monitoring through an interactive trend-analysis view.
+
+## Key DAX Measures
+
+| Measure | Purpose |
+|---|---|
+| `Default Rate` | Defaults ÷ total loans, overall and by segment |
+| `Amount at Risk` | Sum of outstanding balance on defaulted loans |
+| `% Portfolio at Risk` | Amount at Risk ÷ Total Loan Amount |
+| `CreditScoreBand` | Buckets raw credit scores into Poor / Fair / Good / Excellent |
+| `MonthStart` | Normalizes application dates to enable accurate month-over-month trend analysis |
 
 ## Tools Used
-Power BI (Power Query for data transformation, data modeling across 
-fact/dimension tables), Excel
 
-## How to View
-Download the .pbix file and open in Power BI Desktop, or view the 
-screenshots above for a quick overview.
+- **Power BI Desktop** — data modeling, DAX measures, visualization
+- **DAX** — custom measures for risk and default metrics
+- **Excel** — source data (loan facts, product/loan-type reference, customer demographics)
+
+## Data Note
+
+This project uses a synthetic/sample banking dataset created for portfolio and learning purposes — it does not represent real customer or loan data.
